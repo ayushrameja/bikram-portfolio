@@ -54,14 +54,8 @@ export default function RootLayout({
         />
         <meta name="apple-mobile-web-app-title" content="Bikramdeep Singh" />
         <link rel="manifest" href="/site.webmanifest" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(() => { try { const t = localStorage.getItem('theme'); const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; const next = t === 'dark' ? 'dark' : t === 'light' ? 'light' : prefersDark ? 'dark' : 'light'; if (next === 'dark') { document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme = 'dark'; } else { document.documentElement.classList.remove('dark'); document.documentElement.style.colorScheme = 'light'; } } catch (e) {} })();",
-          }}
-        />
       </head>
-      <body className="min-h-dvh overflow-x-hidden bg-zinc-200 font-sans text-zinc-950 antialiased dark:bg-zinc-900 dark:text-zinc-100">
+      <body className="min-h-dvh overflow-x-hidden bg-zinc-950 font-sans text-zinc-50 antialiased selection:bg-mutedGold/30 selection:text-zinc-50">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

@@ -5,8 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        offBlack: "#111110",
-        cream: "#f9f7f1",
+        offBlack: "#10100E",
+        cream: "#FFFFE3",
         mutedGold: "#d4af37",
         sageGreen: "#8A9A5B",
       },
