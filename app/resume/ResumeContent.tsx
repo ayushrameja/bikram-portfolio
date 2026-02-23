@@ -79,7 +79,7 @@ export default function ResumeContent() {
             </div>
             <iframe
               src={RESUME.previewUrl}
-              title="Ayush Rameja's Resume"
+              title="Bikramdeep Singh's Resume"
               className="mt-10 h-[72dvh] w-full lg:h-[calc(100%-2.5rem)]"
               loading="lazy"
             />

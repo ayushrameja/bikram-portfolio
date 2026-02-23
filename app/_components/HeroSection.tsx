@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 
-import { LINKS } from "@/constants/links";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { scrollToTarget } from "@/utils/scroll";
 
@@ -44,17 +43,17 @@ export default function HeroSection() {
           <motion.div variants={fadeInUp} className="w-full max-w-3xl">
             <div className="inline-flex flex-wrap items-center justify-center gap-2">
               <span className="inline-flex items-center rounded-full border border-zinc-200/70 bg-white/60 px-4 py-2 text-xs font-semibold tracking-widest text-zinc-700 backdrop-blur dark:border-zinc-700/60 dark:bg-zinc-950/35 dark:text-zinc-200">
-                PRODUCT · UI · SYSTEMS
+                DATA · ANALYTICS · AI
               </span>
             </div>
             <h1 className="mt-8 text-6xl font-semibold tracking-tight text-zinc-950 sm:text-7xl dark:text-zinc-50">
-              Ayush Rameja
+              Bikramdeep Singh
               <span className="relative mt-4 block text-2xl font-semibold tracking-tight sm:text-3xl">
                 <span className="bg-linear-to-r from-fuchsia-600 via-violet-600 to-cyan-600 bg-clip-text text-transparent dark:from-fuchsia-300 dark:via-violet-300 dark:to-cyan-300">
-                  Software engineer
+                  Data Analyst
                 </span>{" "}
                 <span className="text-zinc-950 dark:text-zinc-50">
-                  who ships end to end.
+                  who transforms data into decisions.
                 </span>
                 <span
                   aria-hidden
@@ -64,8 +63,9 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-6 text-base leading-relaxed text-zinc-600 dark:text-zinc-300">
-              I build web products across UI, APIs, and data. I try to keep the
-              code clean, the UX calm, and the systems boring in the best way.
+              I analyze complex datasets, build data pipelines, and create
+              insightful visualizations. I keep the numbers clean, the dashboards
+              clear, and the insights actionable.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -111,8 +111,8 @@ export default function HeroSection() {
                       <div className="mt-5 overflow-hidden rounded-[32px] border border-zinc-200/70 bg-white/60 shadow-[0_18px_55px_-45px_rgba(0,0,0,0.18)] backdrop-blur dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:shadow-[0_18px_55px_-45px_rgba(0,0,0,0.8)]">
                         <div className="relative h-[320px] w-full sm:h-[360px] lg:h-[420px]">
                           <Image
-                            src="/assets/image/profile.png"
-                            alt="Ayush Rameja"
+                            src="/assets/image/bikram.jpeg"
+                            alt="Bikramdeep Singh"
                             fill
                             priority
                             className="object-cover"
@@ -123,21 +123,13 @@ export default function HeroSection() {
                             <div className="flex flex-wrap items-end justify-between gap-4">
                               <div className="min-w-0">
                                 <p className="text-lg font-semibold text-zinc-50">
-                                  Ayush Rameja
+                                  Bikramdeep Singh
                                 </p>
                                 <p className="mt-1 text-sm text-zinc-200/90">
                                   <span className="font-semibold text-zinc-50">
-                                    Software Engineer
+                                    Data Analyst & Engineer
                                   </span>{" "}
-                                  at{" "}
-                                  <Link
-                                    href={LINKS.quarks}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-semibold text-zinc-50 underline decoration-white/20 underline-offset-4 transition hover:decoration-white/50"
-                                  >
-                                    Quarks
-                                  </Link>
+                                  · Toronto, ON
                                 </p>
                               </div>
                             </div>
@@ -165,18 +157,19 @@ export default function HeroSection() {
                             ↗
                           </span>
                         </Link>
-                        <Link
-                          href="/blogs"
-                          className="group flex items-center justify-between rounded-3xl border border-zinc-200/70 bg-white/65 px-5 py-4 text-sm font-semibold text-zinc-900 transition hover:bg-white dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-100 dark:hover:bg-zinc-950/35"
+                        <button
+                          type="button"
+                          onClick={() => scrollToTarget("projects", lenis as any)}
+                          className="group flex w-full cursor-pointer items-center justify-between rounded-3xl border border-zinc-200/70 bg-white/65 px-5 py-4 text-sm font-semibold text-zinc-900 transition hover:bg-white dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-100 dark:hover:bg-zinc-950/35"
                         >
-                          Blogs
+                          Projects
                           <span
                             className="text-zinc-500 transition group-hover:translate-x-0.5 dark:text-zinc-400"
                             aria-hidden
                           >
                             ↗
                           </span>
-                        </Link>
+                        </button>
                         <button
                           type="button"
                           onClick={() => scrollToTarget("contact", lenis as any)}
@@ -198,15 +191,15 @@ export default function HeroSection() {
                         <ul className="mt-4 grid gap-3 text-sm text-zinc-700 dark:text-zinc-200">
                           <li className="flex gap-3">
                             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-500/80 dark:bg-fuchsia-400/70" />
-                            Build clean, scalable frontends
+                            Analyze data and uncover actionable insights
                           </li>
                           <li className="flex gap-3">
                             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500/70 dark:bg-violet-400/60" />
-                            Ship APIs and services that hold up
+                            Build ETL pipelines and data systems
                           </li>
                           <li className="flex gap-3">
                             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500/70 dark:bg-cyan-400/60" />
-                            Keep performance and DX honest
+                            Create dashboards and ML models
                           </li>
                         </ul>
                       </div>

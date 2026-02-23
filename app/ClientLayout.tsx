@@ -22,9 +22,7 @@ export default function ClientLayout({
 
   useLayoutEffect(() => {
     let route = "Home";
-    if (pathname.includes("/blogs")) {
-      route = "Blogs";
-    } else if (pathname.includes("/resume")) {
+    if (pathname.includes("/resume")) {
       route = "Resume";
     }
 

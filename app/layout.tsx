@@ -12,9 +12,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "Ayush Rameja | Portfolio",
+  title: "Bikramdeep Singh | Portfolio",
   description:
-    "Software Engineer at Quarks building fast, thoughtful web experiences",
+    "Data Analyst & Engineer turning complex data into actionable insights",
 };
 
 export default function RootLayout({
@@ -52,7 +52,7 @@ export default function RootLayout({
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <meta name="apple-mobile-web-app-title" content="Ayush Rameja" />
+        <meta name="apple-mobile-web-app-title" content="Bikramdeep Singh" />
         <link rel="manifest" href="/site.webmanifest" />
         <script
           dangerouslySetInnerHTML={{

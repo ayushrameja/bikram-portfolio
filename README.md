@@ -1,6 +1,6 @@
-# Ayush Rameja’s Portfolio (2026)
+# Bikramdeep Singh's Portfolio (2026)
 
-Live site: https://www.ayush.im
+Live site: https://www.bikramdeep.dev
 
 ## Stack
 - Next.js 16 (App Router)
@@ -24,4 +24,4 @@ Copy `.env.example` → `.env.local` and fill in SMTP settings for the contact f
 - `pnpm start` — start production server
 - `pnpm lint` — lint
 
-© 2026 Ayush Rameja
+© 2026 Bikramdeep Singh

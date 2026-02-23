@@ -25,7 +25,6 @@ const Nav = () => {
 
   const isHomeRoute = pathname === "/";
   const activeHomeSection = useActiveSection(isHomeRoute);
-  const isBlogsRoute = pathname === "/blogs" || pathname.startsWith("/blogs/");
   const isResumeRoute = pathname === "/resume";
 
   const showExternal = useAppStore((state) => state.showExternal);
@@ -52,7 +51,7 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isBlogsRoute || isResumeRoute) {
+      if (isResumeRoute) {
         setShowExternal(false);
         return;
       }
@@ -66,13 +65,13 @@ const Nav = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isBlogsRoute, isResumeRoute, setShowExternal]);
+  }, [isResumeRoute, setShowExternal]);
 
   useEffect(() => {
-    if (isHomeRoute || isBlogsRoute || isResumeRoute) {
+    if (isHomeRoute || isResumeRoute) {
       setShowExternal(false);
     }
-  }, [isHomeRoute, isBlogsRoute, isResumeRoute, setShowExternal]);
+  }, [isHomeRoute, isResumeRoute, setShowExternal]);
 
   const linkVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -107,38 +106,25 @@ const Nav = () => {
   const navLinks = useMemo(() => {
     if (currentRoute === "Home") return null;
 
-    if (isBlogsRoute) {
-      return [
-        { label: "Portfolio", href: "/" },
-        { label: "Resume", href: "/resume" },
-      ];
-    }
-
     if (isResumeRoute) {
-      return [
-        { label: "Portfolio", href: "/" },
-        { label: "Blogs", href: "/blogs" },
-      ];
+      return [{ label: "Portfolio", href: "/" }];
     }
 
     return [
       { label: "Portfolio", href: "/" },
-      { label: "Blogs", href: "/blogs" },
       { label: "Resume", href: "/resume" },
     ];
-  }, [currentRoute, isBlogsRoute, isResumeRoute]);
+  }, [currentRoute, isResumeRoute]);
 
   const logoHref = useMemo(() => {
-    if (isBlogsRoute) return "/blogs";
     if (isResumeRoute) return "/resume";
     return "/";
-  }, [isBlogsRoute, isResumeRoute]);
+  }, [isResumeRoute]);
 
   const logoLabel = useMemo(() => {
-    if (isBlogsRoute) return "Blogs";
     if (isResumeRoute) return "Resume";
     return null;
-  }, [isBlogsRoute, isResumeRoute]);
+  }, [isResumeRoute]);
 
   return (
     <motion.nav className="pointer-events-none fixed inset-x-0 bottom-0 z-50 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-10">
@@ -158,7 +144,7 @@ const Nav = () => {
           transition={{ delay: enterDelay, duration: 0.2, ease: "easeOut" }}
         >
           <div className="relative h-6 w-6 shrink-0">
-            <Image src={logo} alt="Ayush Rameja" fill className="object-contain" />
+            <Image src={logo} alt="Bikramdeep Singh" fill className="object-contain" />
           </div>
           {logoLabel && (
             <motion.div
@@ -210,26 +196,22 @@ const Nav = () => {
         </div>
         <AnimatePresence initial={false}>
           {showExternal &&
-            !isBlogsRoute &&
-            !isResumeRoute &&
-            ["Blogs", "Resume"].map((externalLink: string, i: number) => (
+            !isResumeRoute && (
               <motion.div
-                key={externalLink}
-                custom={i}
                 className="hidden sm:block"
                 initial={{ opacity: 0, scale: 0.92, width: 0 }}
                 animate={{ opacity: 1, scale: 1, width: "auto" }}
                 exit={{ opacity: 0, scale: 0.92, width: 0 }}
-                transition={{ delay: i * 0.06, duration: 0.2, ease: "easeOut" }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
                 <Link
                   className="inline-flex items-center justify-center rounded-lg bg-black px-3 py-2 text-sm text-zinc-50 ring-1 ring-inset ring-black/10 transition hover:bg-zinc-950 dark:bg-black dark:text-zinc-200 dark:ring-zinc-700/60 dark:hover:bg-zinc-950/90 dark:hover:text-zinc-50"
-                  href={externalLink === "Blogs" ? "/blogs" : "/resume"}
+                  href="/resume"
                 >
-                  {externalLink}
+                  Resume
                 </Link>
               </motion.div>
-            ))}
+            )}
         </AnimatePresence>
         <div className="ml-1 flex items-center">
           <ThemeToggle />

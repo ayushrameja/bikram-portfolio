@@ -199,13 +199,13 @@ export default function ContactSection() {
                   <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">What I&apos;m Great At</h3>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <span className="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/10 px-3 py-1 text-xs font-semibold text-fuchsia-800 dark:border-fuchsia-400/25 dark:bg-fuchsia-400/10 dark:text-fuchsia-100">
-                      Shipping UI polish
+                      Data Analytics & Visualization
                     </span>
                     <span className="rounded-full border border-zinc-200/70 bg-white/40 px-3 py-1 text-xs font-semibold text-zinc-800 dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-200">
-                      Product-minded engineering
+                      Machine Learning & AI
                     </span>
                     <span className="rounded-full border border-zinc-200/70 bg-white/40 px-3 py-1 text-xs font-semibold text-zinc-800 dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-200">
-                      Performance & DX
+                      Cloud & Data Engineering
                     </span>
                   </div>
                 </div>
