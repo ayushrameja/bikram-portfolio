@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Lora", ui-serif, georgia, serif;
+  --font-editorial: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html,
+  body {
+    height: auto;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+:root {
+  color-scheme: light;
+  --storm-blur: 14px;
+  --storm-scale: 1.015;
+  --storm-rise: 14px;
+  --storm-duration: 1000ms;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-color: rgba(161, 161, 170, 0.45) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(63, 63, 70, 0.6) transparent;
+}
+
+html[data-storming="theme"] #app-shell {
+  animation: storm-blur var(--storm-duration) ease;
+  will-change: filter, transform;
+}
+
+html[data-storming="route"] #page-shell {
+  animation: storm-rise var(--storm-duration) ease;
+  will-change: opacity, transform;
+}
+
+html[data-storming="load"] #page-shell {
+  animation: storm-rise var(--storm-duration) ease;
+  will-change: opacity, transform;
+}
+
+@keyframes storm-blur {
+  0% {
+    filter: blur(0px);
+    transform: scale(1);
+  }
+  35% {
+    filter: blur(var(--storm-blur));
+    transform: scale(var(--storm-scale));
+  }
+  100% {
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+@keyframes storm-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--storm-rise));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
