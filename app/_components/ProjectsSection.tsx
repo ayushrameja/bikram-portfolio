@@ -10,15 +10,21 @@ import TextReveal from "@/components/TextReveal";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="px-6 py-20">
-      <div className="mx-auto w-full max-w-7xl">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <TextReveal as="h2" className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-              Selected work
+    <section id="projects" className="relative overflow-hidden bg-offBlack px-6 py-32">
+      {/* Background aesthetics */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-wavy-lines opacity-100" />
+        <div className="absolute top-0 right-0 h-[800px] w-[800px] rounded-full bg-radial from-mutedGold/5 to-transparent blur-3xl opacity-50" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <div className="flex flex-col gap-6">
+          <div className="max-w-3xl">
+            <TextReveal as="h2" className="font-editorial text-5xl font-bold tracking-tight text-cream sm:text-6xl md:text-7xl">
+              Selected Work
             </TextReveal>
-            <TextReveal as="p" delay={0.1} className="mt-2 text-zinc-600 dark:text-zinc-300">
-              A few projects that highlight my role, skills, and impact.
+            <TextReveal as="p" delay={0.1} className="mt-6 text-lg font-light leading-relaxed text-cream/70 sm:text-xl md:text-2xl">
+              A curated selection of projects demonstrating complex data transformations and elegant engineering solutions.
             </TextReveal>
           </div>
         </div>
@@ -43,20 +49,21 @@ export default function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-zinc-200/70 bg-white/60 p-8 shadow-[0_22px_70px_-55px_rgba(0,0,0,0.22)] backdrop-blur transition-all duration-300 hover:border-zinc-300/80 hover:shadow-[0_30px_90px_-60px_rgba(0,0,0,0.26)] dark:border-zinc-700/60 dark:bg-zinc-900/30 dark:shadow-[0_22px_70px_-55px_rgba(0,0,0,0.7)] dark:hover:border-zinc-600/70 dark:hover:shadow-[0_30px_90px_-60px_rgba(0,0,0,0.85)]">
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute -right-28 -top-28 h-72 w-72 rounded-full bg-fuchsia-500/12 blur-3xl dark:bg-fuchsia-400/10" />
-        <div className="absolute -bottom-32 -left-28 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl dark:bg-violet-400/8" />
+    <div className="group relative overflow-hidden rounded-sm border border-zinc-800 bg-offBlack/80 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-mutedGold/30 hover:bg-offBlack">
+      {/* Dynamic Hover Glow Array */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+        <div className="absolute -right-28 -top-28 h-72 w-72 rounded-full bg-mutedGold/10 blur-3xl" />
+        <div className="absolute -bottom-32 -left-28 h-72 w-72 rounded-full bg-sageGreen/10 blur-3xl" />
       </div>
 
       <div className="relative grid gap-8 lg:grid-cols-12 lg:items-start">
         <div className="min-w-0 lg:col-span-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-zinc-200/70 bg-zinc-950/5 px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-300">
+              <span className="rounded-sm border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-cream/70">
                 {project.client}
               </span>
-              <span className="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/10 px-3 py-1 text-xs font-medium text-fuchsia-700 dark:border-fuchsia-400/30 dark:bg-fuchsia-400/10 dark:text-fuchsia-200">
+              <span className="rounded-sm border border-mutedGold/20 bg-mutedGold/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-mutedGold">
                 {project.role}
               </span>
             </div>
@@ -66,25 +73,25 @@ function ProjectCard({ project }: { project: Project }) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-zinc-200/70 bg-white/40 px-3 py-2 text-xs font-semibold text-zinc-800 transition hover:bg-white/60 dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-100 dark:hover:bg-zinc-950/35"
+                className="inline-flex items-center gap-2 rounded-sm border border-zinc-800 bg-offBlack px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream transition-colors duration-300 hover:border-sageGreen/50 hover:text-sageGreen"
               >
-                <span>See more</span>
-                <span aria-hidden className="text-zinc-500 dark:text-zinc-400">
+                <span>View Project</span>
+                <span aria-hidden className="text-sageGreen/70">
                   ↗
                 </span>
               </Link>
             )}
           </div>
 
-          <h3 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+          <h3 className="mt-8 font-editorial text-4xl font-bold tracking-tight text-cream sm:text-5xl group-hover:text-mutedGold transition-colors duration-500">
             {project.name}
           </h3>
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {project.skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-zinc-200/70 bg-white/40 px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700/60 dark:bg-zinc-950/25 dark:text-zinc-300"
+                className="rounded-sm border border-zinc-800/80 bg-zinc-800/30 px-3 py-1 text-[11px] font-mono text-zinc-400 transition-colors group-hover:border-zinc-700"
               >
                 {skill}
               </span>
@@ -92,17 +99,21 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
 
-        <div className="lg:col-span-7 lg:border-l lg:border-zinc-200/70 lg:pl-8 dark:lg:border-zinc-700/60">
-          <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">HIGHLIGHTS</p>
+        <div className="mt-8 lg:mt-0 lg:col-span-7 lg:border-l lg:border-zinc-800 lg:pl-10">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
+            Key Outcomes
+          </p>
 
-          <ul className="mt-5 space-y-4">
+          <ul className="mt-6 space-y-5">
             {project.points.map((point: string, index: number) => (
-              <li key={index} className="flex gap-4">
+              <li key={index} className="flex gap-4 items-start">
                 <span
                   aria-hidden
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-500 dark:bg-fuchsia-300"
+                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-sm bg-sageGreen/80 ring-2 ring-sageGreen/20"
                 />
-                <span className="text-base leading-7 text-zinc-700 dark:text-zinc-200">{point}</span>
+                <span className="text-sm font-light leading-relaxed text-cream/80 md:text-base">
+                  {point}
+                </span>
               </li>
             ))}
           </ul>

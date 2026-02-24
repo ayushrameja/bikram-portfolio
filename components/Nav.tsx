@@ -127,16 +127,16 @@ const Nav = () => {
 
   return (
     <motion.nav className="pointer-events-none fixed inset-x-0 bottom-0 z-50 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-10">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-offBlack to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-offBlack via-offBlack/80 to-transparent" />
       <motion.div
-        className="pointer-events-auto mx-auto flex w-fit max-w-[min(52rem,calc(100vw-2rem))] items-center gap-1.5 rounded-2xl border border-cream/5 bg-offBlack/80 p-1.5 shadow-2xl backdrop-blur-md"
+        className="pointer-events-auto mx-auto flex w-fit max-w-[min(52rem,calc(100vw-2rem))] items-center gap-2 rounded-sm border border-zinc-800 bg-offBlack/90 p-1.5 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-md"
         initial={containerMotion.initial}
         animate={containerMotion.animate}
       >
         <MotionLink
           href={logoHref}
-          className={`relative flex h-10 shrink-0 items-center overflow-hidden rounded-xl bg-cream/5 ring-1 ring-inset ring-cream/10 transition-all duration-300 ${
-            logoLabel ? "px-3" : "w-10 justify-center"
+          className={`relative flex h-10 shrink-0 items-center overflow-hidden rounded-sm border border-zinc-800 bg-zinc-900/50 transition-all duration-300 hover:border-mutedGold/50 ${
+            logoLabel ? "px-4" : "w-10 justify-center"
           }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -149,15 +149,15 @@ const Nav = () => {
             <motion.div
               initial={{ opacity: 0, x: -5 }}
               animate={{ opacity: 1, x: 0 }}
-              className="ml-2 flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-cream"
+              className="ml-3 flex items-center gap-2 whitespace-nowrap text-[11px] font-semibold uppercase tracking-widest text-mutedGold"
             >
-              <span className="text-zinc-400">·</span>
+              <span className="text-zinc-600">·</span>
               <span>{logoLabel}</span>
             </motion.div>
           )}
         </MotionLink>
-        <div className="flex items-center gap-0.5 rounded-xl bg-offBlack p-1 ring-1 ring-inset ring-cream/10">
-          <div className="flex items-center gap-0.5">
+        <div className="flex items-center gap-1 rounded-sm border border-zinc-800 bg-zinc-900/50 p-1">
+          <div className="flex items-center gap-1">
             {currentRoute === "Home"
               ? homeLinks.map((link, i) => (
                 <motion.button
@@ -169,10 +169,10 @@ const Nav = () => {
                   animate="visible"
                   variants={linkVariants}
                   className={[
-                    "group relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg px-3 py-2 text-sm transition",
+                    "group relative flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all duration-300",
                     activeHomeSection === link.toLowerCase()
-                      ? "bg-cream/10 text-cream"
-                      : "text-cream/50 hover:bg-cream/5 hover:text-cream",
+                      ? "bg-mutedGold/10 text-mutedGold ring-1 ring-inset ring-mutedGold/20"
+                      : "text-zinc-500 hover:bg-zinc-800 hover:text-cream",
                   ].join(" ")}
                 >
                   <StaggeredText text={link} />
@@ -185,7 +185,7 @@ const Nav = () => {
                   initial="hidden"
                   animate="visible"
                   variants={linkVariants}
-                  className="group relative flex items-center justify-center overflow-hidden rounded-lg px-3 py-2 text-sm text-cream/50 transition hover:bg-cream/10 hover:text-cream"
+                  className="group relative flex items-center justify-center overflow-hidden rounded-sm px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-zinc-500 transition-all duration-300 hover:bg-zinc-800 hover:text-cream"
                   href={link.href}
                 >
                   <StaggeredText text={link.label} />
@@ -204,7 +204,7 @@ const Nav = () => {
                 transition={{ duration: 0.2, ease: "easeOut" }}
               >
                 <Link
-                  className="inline-flex items-center justify-center rounded-lg bg-cream px-3 py-2 text-sm text-offBlack ring-1 ring-inset ring-cream/10 transition hover:bg-white"
+                  className="btn-modern btn-primary inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-6 py-[11px] text-[10px] font-semibold uppercase tracking-[0.2em] shadow-xl"
                   href="/resume"
                 >
                   Resume
