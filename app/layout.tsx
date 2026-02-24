@@ -52,7 +52,7 @@ export default function RootLayout({
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <meta name="apple-mobile-web-app-title" content="Bikramdeep Singh" />
+        <meta name="apple-mobile-web-app-title" content="Bikram" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="min-h-dvh overflow-x-hidden bg-zinc-950 font-sans text-zinc-50 antialiased selection:bg-mutedGold/30 selection:text-zinc-50">

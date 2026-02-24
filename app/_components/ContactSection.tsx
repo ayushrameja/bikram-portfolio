@@ -137,13 +137,19 @@ export default function ContactSection() {
                             {LINKS.email}
                           </Link>
                         </p>
-                        <button
-                          type="submit"
-                          disabled={isSubmitting || isSubmitted}
-                          className="btn-modern btn-primary inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
+                        <motion.div
+                          whileHover={{ y: -2 }}
+                          whileTap={{ scale: 0.97 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
                         >
-                          {isSubmitting ? "Sending..." : isSubmitted ? "Sent!" : "Send Message"}
-                        </button>
+                          <button
+                            type="submit"
+                            disabled={isSubmitting || isSubmitted}
+                            className="btn-modern btn-primary inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {isSubmitting ? "Sending..." : isSubmitted ? "Sent!" : "Send Message"}
+                          </button>
+                        </motion.div>
                       </div>
                     </form>
                   )}
