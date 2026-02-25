@@ -5,17 +5,23 @@
   --font-serif: "Lora", ui-serif, georgia, serif;
   --font-editorial: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 
-  --color-zinc-50: #FFFFE3; /* cream */
-  --color-zinc-100: #f9f9db;
-  --color-zinc-200: #ececce;
-  --color-zinc-300: #d4d4af;
-  --color-zinc-400: #b8b88e;
-  --color-zinc-500: #9c9c6f;
-  --color-zinc-600: #7e7e51;
-  --color-zinc-700: #626237;
-  --color-zinc-800: #46461f;
-  --color-zinc-900: #292911;
-  --color-zinc-950: #10100E; /* offBlack */
+  /* Light theme defaults (warm paper variant) */
+  --color-zinc-50: #1A180F;
+  --color-zinc-100: #252218;
+  --color-zinc-200: #363222;
+  --color-zinc-300: #4B4530;
+  --color-zinc-400: #655D42;
+  --color-zinc-500: #84785A;
+  --color-zinc-600: #A79A78;
+  --color-zinc-700: #CEC3A1;
+  --color-zinc-800: #E9DFC2;
+  --color-zinc-900: #F5EFDB;
+  --color-zinc-950: #FCF8EC;
+
+  --color-offBlack: #FCF8EC;
+  --color-cream: #1A180F;
+  --color-mutedGold: #B88C12;
+  --color-sageGreen: #5E7B4E;
 }
 
 @layer base {
@@ -39,8 +45,8 @@
     45deg,
     transparent,
     transparent 10px,
-    #181815 10px,
-    #181815 12px
+    rgba(var(--scan-line-rgb), 1) 10px,
+    rgba(var(--scan-line-rgb), 1) 12px
   );
   background-size: 56px 56px;
   animation: scan-lines 15s linear infinite;
@@ -56,7 +62,7 @@
 }
 
 .bg-wavy-lines {
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 15 Q 30 0, 60 15 T 120 15' fill='none' stroke='rgba(255, 255, 227, 0.03)' stroke-width='1' /%3E%3C/svg%3E");
+  background-image: var(--wavy-lines-pattern);
   background-size: 120px 30px;
 }
 
@@ -146,10 +152,65 @@
   --storm-scale: 1.015;
   --storm-rise: 14px;
   --storm-duration: 1000ms;
+  --scan-line-rgb: 232, 223, 194;
+  --wavy-lines-pattern: url("data:image/svg+xml,%3Csvg width='120' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 15 Q 30 0, 60 15 T 120 15' fill='none' stroke='rgba(26, 24, 15, 0.06)' stroke-width='1' /%3E%3C/svg%3E");
+  --shadow-atmos-nav:
+    0 14px 40px -20px rgba(26, 24, 15, 0.20),
+    0 6px 18px -12px rgba(26, 24, 15, 0.16),
+    0 0 0 1px rgba(184, 140, 18, 0.05);
+  --shadow-atmos-card:
+    0 24px 60px -34px rgba(26, 24, 15, 0.24),
+    0 10px 28px -20px rgba(26, 24, 15, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+  --shadow-atmos-soft:
+    0 18px 38px -28px rgba(26, 24, 15, 0.22),
+    0 8px 20px -16px rgba(26, 24, 15, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.45) inset;
 }
 
 html.dark {
   color-scheme: dark;
+  --color-zinc-50: #FFFFE3;
+  --color-zinc-100: #f9f9db;
+  --color-zinc-200: #ececce;
+  --color-zinc-300: #d4d4af;
+  --color-zinc-400: #b8b88e;
+  --color-zinc-500: #9c9c6f;
+  --color-zinc-600: #7e7e51;
+  --color-zinc-700: #626237;
+  --color-zinc-800: #46461f;
+  --color-zinc-900: #292911;
+  --color-zinc-950: #10100E;
+  --color-offBlack: #10100E;
+  --color-cream: #FFFFE3;
+  --color-mutedGold: #d4af37;
+  --color-sageGreen: #8A9A5B;
+  --scan-line-rgb: 24, 24, 21;
+  --wavy-lines-pattern: url("data:image/svg+xml,%3Csvg width='120' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 15 Q 30 0, 60 15 T 120 15' fill='none' stroke='rgba(255, 255, 227, 0.03)' stroke-width='1' /%3E%3C/svg%3E");
+  --shadow-atmos-nav:
+    0 24px 70px -36px rgba(0, 0, 0, 0.72),
+    0 8px 20px -12px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 55, 0.06);
+  --shadow-atmos-card:
+    0 36px 90px -44px rgba(0, 0, 0, 0.78),
+    0 12px 28px -18px rgba(0, 0, 0, 0.52),
+    0 1px 0 rgba(255, 255, 227, 0.04) inset;
+  --shadow-atmos-soft:
+    0 24px 56px -36px rgba(0, 0, 0, 0.72),
+    0 8px 18px -14px rgba(0, 0, 0, 0.44),
+    0 1px 0 rgba(255, 255, 227, 0.03) inset;
+}
+
+.shadow-atmos-nav {
+  box-shadow: var(--shadow-atmos-nav);
+}
+
+.shadow-atmos-card {
+  box-shadow: var(--shadow-atmos-card);
+}
+
+.shadow-atmos-soft {
+  box-shadow: var(--shadow-atmos-soft);
 }
 
 * {

@@ -49,7 +49,7 @@ export default function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative overflow-hidden rounded-sm border border-zinc-800 bg-offBlack/80 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:border-mutedGold/30 hover:bg-offBlack">
+    <div className="group relative overflow-hidden rounded-sm border border-zinc-800 bg-offBlack/80 p-8 shadow-atmos-card backdrop-blur-md transition-all duration-500 hover:border-mutedGold/30 hover:bg-offBlack">
       {/* Dynamic Hover Glow Array */}
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100">
         <div className="absolute -right-28 -top-28 h-72 w-72 rounded-full bg-mutedGold/10 blur-3xl" />

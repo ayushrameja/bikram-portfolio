@@ -10,6 +10,7 @@ import { useLenis } from "lenis/react";
 import { useAppStore } from "@/store/store";
 import { STORM_TRIGGER_EVENT } from "@/utils/storm";
 import StaggeredText from "@/components/StaggerText";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useActiveSection } from "@/hooks";
 
 import logo from "../public/assets/image/logo.svg";
@@ -129,7 +130,7 @@ const Nav = () => {
     <motion.nav className="pointer-events-none fixed inset-x-0 bottom-0 z-50 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-10">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-offBlack via-offBlack/80 to-transparent" />
       <motion.div
-        className="pointer-events-auto mx-auto flex w-fit max-w-[min(52rem,calc(100vw-2rem))] items-center gap-2 rounded-sm border border-zinc-800 bg-offBlack/90 p-1.5 shadow-[0_0_40px_rgba(0,0,0,0.8)] backdrop-blur-md"
+        className="pointer-events-auto mx-auto flex w-fit max-w-[min(52rem,calc(100vw-1rem))] items-center gap-1 sm:gap-2 rounded-sm border border-zinc-800 bg-offBlack/90 p-1 sm:p-1.5 shadow-atmos-nav backdrop-blur-md"
         initial={containerMotion.initial}
         animate={containerMotion.animate}
       >
@@ -169,7 +170,7 @@ const Nav = () => {
                   animate="visible"
                   variants={linkVariants}
                   className={[
-                    "group relative flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all duration-300",
+                    "group relative flex cursor-pointer items-center justify-center overflow-hidden rounded-sm px-3 sm:px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest transition-all duration-300",
                     activeHomeSection === link.toLowerCase()
                       ? "bg-mutedGold/10 text-mutedGold ring-1 ring-inset ring-mutedGold/20"
                       : "text-zinc-500 hover:bg-zinc-800 hover:text-cream",
@@ -185,7 +186,7 @@ const Nav = () => {
                   initial="hidden"
                   animate="visible"
                   variants={linkVariants}
-                  className="group relative flex items-center justify-center overflow-hidden rounded-sm px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-zinc-500 transition-all duration-300 hover:bg-zinc-800 hover:text-cream"
+                  className="group relative flex items-center justify-center overflow-hidden rounded-sm px-3 sm:px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-zinc-500 transition-all duration-300 hover:bg-zinc-800 hover:text-cream"
                   href={link.href}
                 >
                   <StaggeredText text={link.label} />
@@ -193,6 +194,7 @@ const Nav = () => {
               ))}
           </div>
         </div>
+        <ThemeToggle />
         <AnimatePresence initial={false}>
           {showExternal &&
             !isResumeRoute && (

@@ -19,6 +19,7 @@ export default function ClientLayout({
   const hasMounted = useRef(false);
   const setCurrentRoute = useAppStore((state) => state.setCurrentRoute);
   const setShowExternal = useAppStore((state) => state.setShowExternal);
+  const isResumeRoute = pathname.includes("/resume");
 
   useLayoutEffect(() => {
     let route = "Home";
@@ -43,7 +44,7 @@ export default function ClientLayout({
             <div id="page-shell">{children}</div>
           </Suspense>
         </div>
-        <Nav />
+        {!isResumeRoute && <Nav />}
         <Toaster />
         <StormTransition />
       </div>

@@ -22,7 +22,7 @@ export default function ContactSection() {
 
       <div className="mx-auto w-full max-w-6xl relative z-10">
         <motion.div
-          className="relative overflow-hidden rounded-sm border border-zinc-800/80 bg-offBlack/80 shadow-2xl backdrop-blur-md"
+          className="relative overflow-hidden rounded-sm border border-zinc-800/80 bg-offBlack/80 shadow-atmos-card backdrop-blur-md"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
@@ -49,10 +49,10 @@ export default function ContactSection() {
 
             <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-stretch">
               <div className="lg:col-span-7">
-                <div className="h-full rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-2xl backdrop-blur-sm">
+                <div className="h-full rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-atmos-soft backdrop-blur-sm">
                   {isSubmitted ? (
                     <div className="flex h-full flex-col items-center justify-center text-center">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-zinc-800 bg-offBlack shadow-2xl">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-zinc-800 bg-offBlack shadow-atmos-soft">
                         <CheckCircle2 className="h-7 w-7 text-sageGreen" />
                       </div>
                       <h3 className="mt-5 font-editorial text-2xl font-bold tracking-tight text-cream">
@@ -157,7 +157,7 @@ export default function ContactSection() {
               </div>
 
               <div className="grid gap-8 lg:col-span-5">
-                <div className="rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-2xl backdrop-blur-sm">
+                <div className="rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-atmos-soft backdrop-blur-sm">
                   <h3 className="font-editorial text-2xl font-bold tracking-tight text-cream">Links</h3>
                   <p className="mt-2 text-sm font-light leading-relaxed text-cream/70">
                     Stalk professionally. Please do not open a Jira ticket about my personality.
@@ -207,7 +207,7 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div className="rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-2xl backdrop-blur-sm">
+                <div className="rounded-sm border border-zinc-800 bg-zinc-900/40 p-8 shadow-atmos-soft backdrop-blur-sm">
                   <h3 className="font-editorial text-2xl font-bold tracking-tight text-cream">What I&apos;m Great At</h3>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <span className="rounded-sm border border-sageGreen/20 bg-sageGreen/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-sageGreen">

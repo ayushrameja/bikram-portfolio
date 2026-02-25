@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { BASE_URL } from "@/constants/links";
+import { THEME_PREFERENCE_ATTR, THEME_STORAGE_KEY } from "@/utils/theme";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -17,6 +18,32 @@ export const metadata: Metadata = {
     "Data Analyst & Engineer turning complex data into actionable insights",
 };
 
+const themeInitScript = `
+(() => {
+  try {
+    const storageKey = ${JSON.stringify(THEME_STORAGE_KEY)};
+    const prefAttr = ${JSON.stringify(THEME_PREFERENCE_ATTR)};
+    const stored = localStorage.getItem(storageKey);
+    const preference = stored === "light" || stored === "dark" || stored === "system"
+      ? stored
+      : "system";
+    const resolved = preference === "system"
+      ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      : preference;
+    const root = document.documentElement;
+    root.setAttribute(prefAttr, preference);
+    root.classList.toggle("dark", resolved === "dark");
+  } catch {
+    const root = document.documentElement;
+    root.setAttribute(${JSON.stringify(THEME_PREFERENCE_ATTR)}, "system");
+    root.classList.toggle(
+      "dark",
+      !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,6 +56,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
