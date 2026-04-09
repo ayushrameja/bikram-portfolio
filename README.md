@@ -1,6 +1,6 @@
-# Bikramdeep Singh's Portfolio (2026)
+# Bikramdeep Singh's Portfolio (2026) via Templio
 
-Live site: https://www.bikramdeep.dev
+Live site: https://www.bikram.templio.app
 
 ## Stack
 - Next.js 16 (App Router)
